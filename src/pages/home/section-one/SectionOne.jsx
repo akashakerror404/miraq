@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion';
-import video from "../../../assets/videos/vr-video.mp4";
+import video from "../../../assets/videos/vr-video-com.mp4";
 import frame1 from "../../../assets/VR/Group 6.png";
 import ve from "../../../assets/VR/ve (2).jpg";
 import v2 from "../../../assets/VR/ve (3).jpg";
