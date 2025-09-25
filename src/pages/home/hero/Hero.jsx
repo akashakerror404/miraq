@@ -11,7 +11,7 @@ function Hero() {
     const slowTransition = { duration: 2.5, ease: "easeOut" }; // smooth + slow
 
     return (
-        <div className="bg-bg-2 bg-cover bg-no-repeat border border-gray-400 rounded-3xl md:flex w-full shadow-inner-white-strong h-[700px] overflow-hidden relative">
+        <div className="bg-bg-2 bg-cover bg-no-repeat border border-gray-400 rounded-3xl md:flex w-full shadow-inner-white-strong md:h-[700px] h-[850px] overflow-hidden relative md:mb-6 mb-4">
 
             {/* Top center notch with VR inside */}
             <div className="fixed top-6 left-1/2  transform -translate-x-1/2 flex items-center justify-center">
@@ -27,18 +27,36 @@ function Hero() {
 
             {/* left content */}
             <div className="hidden md:flex md:w-1/2 h-full justify-start px-5 items-center">
-                <div className="relative">
-                    <motion.img
+                <div className="">
+                    <motion.h1
+                        className="font-[MuseoModerno] md:text-[80px] font-extrabold text-white tracking-wide"
+                        initial={{ opacity: 0, y: -50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                    >
+                        {Array.from("MiraQ").map((char, index) => (
+                            <motion.span
+                                key={index}
+                                initial={{ opacity: 0, y: 40 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.15, type: "spring", stiffness: 300 }}
+                                className="inline-block"
+                            >
+                                {char}
+                            </motion.span>
+                        ))}
+                    </motion.h1>
+                    {/* <motion.img
                         src={name}
                         alt=""
                         className="w-[600px] h-auto"
                         initial={{ y: 50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
-                    />
+                    /> */}
 
                     {/* Tagline */}
-                    <motion.p className="md:absolute md:top-80 md:left-24 mt-4 text-[27px]  font-MuseoModerno text-white flex space-x-1">
+                    <motion.p className=" text-[27px]  font-MuseoModerno text-white flex space-x-1">
                         {tagline.split("").map((char, index) => (
                             <motion.span
                                 key={index}
@@ -54,10 +72,39 @@ function Hero() {
             </div>
 
             {/* right stage (images) */}
-            <div className="md:w-1/2 h-full bg-bg-3 bg-cover bg-no-repeat relative">
-                <div className="md:hidden">
-                    <div>
-                        <img className="w-[500px]" src={name} alt="" />
+            <div className="md:w-1/2 h-full bg-bg-3 bg-cover bg-no-repeat relative ">
+                <div className="md:hidden flex  justify-center items-center  h-[50%]">
+                    <div className="">
+                        <motion.h1
+                            className="font-[MuseoModerno] md:text-[80px] text-[60px] font-extrabold text-white tracking-wide"
+                            initial={{ opacity: 0, y: -50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1 }}
+                        >
+                            {Array.from("MiraQ").map((char, index) => (
+                                <motion.span
+                                    key={index}
+                                    initial={{ opacity: 0, y: 40 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.15, type: "spring", stiffness: 300 }}
+                                    className="inline-block"
+                                >
+                                    {char}
+                                </motion.span>
+                            ))}
+                        </motion.h1>
+                         <motion.p className=" text-[27px]  font-MuseoModerno text-white flex space-x-1">
+                        {tagline.split("").map((char, index) => (
+                            <motion.span
+                                key={index}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.05, type: "spring", stiffness: 500 }}
+                            >
+                                {char === " " ? "\u00A0" : char}
+                            </motion.span>
+                        ))}
+                    </motion.p>
                     </div>
                 </div>
 

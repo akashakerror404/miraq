@@ -5,7 +5,8 @@ import SectionOne from './section-one/SectionOne';
 
 function Home() {
   return (
-    <div className='bg-[#110526] min-h-screen p-6'>
+    <div className='bg-[#110526] min-h-screen md:p-6 p-4'>
+        
           {/* <div className=' h-screen p-6'> */}
 
         <Hero/>
