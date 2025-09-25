@@ -13,18 +13,25 @@ function Hero() {
     return (
         <div className="bg-bg-2 bg-cover bg-no-repeat border border-gray-400 rounded-3xl md:flex w-full shadow-inner-white-strong md:h-[700px] h-[850px] overflow-hidden relative md:mb-6 mb-4">
 
-            {/* Top center notch with VR inside */}
-            <div className="fixed top-6 left-1/2  transform -translate-x-1/2 flex items-center justify-center">
+
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center z-50">
                 <div className="relative w-40 h-8">
                     <img src={notch} alt="Notch" className="w-full h-full" />
+
+                </div>
+            </div>
+            <div className="absolute  top-[3px] md:left-[710px] left-[170px] z-50">
+                <div className="relative">
                     <img
                         src={vr}
                         alt="VR"
-                        className="absolute inset-0 m-auto w-20 z-50 h-16"
+                        className="  w-10 h-10 "
                     />
-                </div>
-            </div>
 
+                </div>
+
+
+            </div>
             {/* left content */}
             <div className="hidden md:flex md:w-1/2 h-full justify-start px-5 items-center">
                 <div className="">
@@ -93,18 +100,18 @@ function Hero() {
                                 </motion.span>
                             ))}
                         </motion.h1>
-                         <motion.p className=" text-[27px]  font-MuseoModerno text-white flex space-x-1">
-                        {tagline.split("").map((char, index) => (
-                            <motion.span
-                                key={index}
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.05, type: "spring", stiffness: 500 }}
-                            >
-                                {char === " " ? "\u00A0" : char}
-                            </motion.span>
-                        ))}
-                    </motion.p>
+                        <motion.p className=" text-[27px]  font-MuseoModerno text-white flex space-x-1">
+                            {tagline.split("").map((char, index) => (
+                                <motion.span
+                                    key={index}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.05, type: "spring", stiffness: 500 }}
+                                >
+                                    {char === " " ? "\u00A0" : char}
+                                </motion.span>
+                            ))}
+                        </motion.p>
                     </div>
                 </div>
 
