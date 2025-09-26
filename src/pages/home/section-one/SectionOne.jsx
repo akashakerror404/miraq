@@ -1,173 +1,114 @@
-import React from 'react'
-import { motion } from 'framer-motion';
+import React from 'react';
 import video from "../../../assets/videos/vr-video-com.mp4";
-import frame1 from "../../../assets/VR/Group 6.png";
-import ve from "../../../assets/VR/ve (2).jpg";
-import v2 from "../../../assets/VR/ve (3).jpg";
-import v4 from "../../../assets/VR/ve (6).jpg";
+import SectionTwo from '../section-two/SectionTwo';
+
 
 function SectionOne() {
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const slideInLeft = {
-    hidden: { opacity: 0, x: -100 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const slideInRight = {
-    hidden: { opacity: 0, x: 100 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const staggerSlideInRight = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
   return (
-    <motion.div 
-      className="bg-bg-2 bg-cover bg-no-repeat border border-gray-400 rounded-3xl md:flex w-full shadow-inner-white-strong md:h-[500px] overflow-hidden relative p-6 flex items-center justify-center"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
-      variants={containerVariants}
-    >
-      <div className='md:flex md:justify-between w-full'>
-        {/* Left Section - Video */}
-        <motion.div 
-          className="md:w-[50%] flex justify-start items-center bg-bg-2 bg-cover bg-no-repeat  shadow-2xl rounded-3xl p-4 "
-          variants={slideInLeft}
-        >
-          {/* Video Player */}
-          <motion.div 
-            className="rounded-2xl overflow-hidden border-2 border-gray-500 w-full"
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
+    <div className="bg-bg-2 bg-cover bg-no-repeat border border-gray-700 rounded-3xl md:flex w-full  md:h-[600px] overflow-hidden relative p-8 shadow-inner-white-strong">
+      <div className='md:flex md:justify-between w-full h-full items-center'>
+
+
+        {/* Left Section - Video Player */}
+        <div className="md:w-[48%] flex justify-center items-center">
+          <div className="relative rounded-2xl overflow-hidden border-2 border-gray-600 shadow-2xl w-full max-w-2xl">
+            {/* Premium Video Player */}
             <video
-              className="w-full h-[150px] md:h-[370px] object-cover"
+              className="w-full h-[250px] md:h-[450px] object-cover transform hover:scale-105 transition-transform duration-700"
               controls
               autoPlay
               muted
               loop
+              playsInline
               poster="/path-to-poster-image.jpg"
             >
               <source src={video} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-          </motion.div>
-        </motion.div>
 
-        {/* Right Section - Images */}
-        <motion.div 
-          className='md:w-[50%]'
-          variants={slideInRight}
-        >
-          <div className='hidden md:flex justify-center items-center gap-5'>
-            {/* Main Image */}
-            <motion.img 
-              src={ve} 
-              className='md:w-[400px] md:h-[400px] rounded-tr-[70px] object-cover'
-              alt="VR Experience 1"
-              variants={staggerSlideInRight}
-              whileHover={{ 
-                scale: 1.05,
-                transition: { duration: 0.3 }
-              }}
-            />
-            
-            {/* Small Images Column */}
-            <motion.div 
-              className='flex flex-col gap-3'
-              variants={containerVariants}
-            >
-              <motion.img 
-                src={v2} 
-                className='md:w-[200px] md:h-[200px] rounded-tr-[70px] object-cover'
-                alt="VR Experience 2"
-                variants={staggerSlideInRight}
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
-                }}
-              />
-              <motion.img 
-                src={v4} 
-                className='md:w-[200px] md:h-[200px] rounded-tr-[70px] object-cover'
-                alt="VR Experience 3"
-                variants={staggerSlideInRight}
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
-                }}
-              />
-            </motion.div>
-          </div>
-
-          {/* Mobile Layout */}
-          <motion.div 
-            className='md:hidden flex flex-col items-center gap-4 mt-4'
-            variants={containerVariants}
-          >
-            <motion.img 
-              src={ve} 
-              className='w-full max-w-[300px] h-[200px] rounded-tr-[50px] object-cover'
-              alt="VR Experience 1"
-              variants={slideInRight}
-              whileHover={{ scale: 1.03 }}
-            />
-            <div className='flex gap-4'>
-              <motion.img 
-                src={v2} 
-                className='w-[140px] h-[140px] rounded-tr-[40px] object-cover'
-                alt="VR Experience 2"
-                variants={staggerSlideInRight}
-                whileHover={{ scale: 1.03 }}
-              />
-              <motion.img 
-                src={v4} 
-                className='w-[140px] h-[140px] rounded-tr-[40px] object-cover'
-                alt="VR Experience 3"
-                variants={staggerSlideInRight}
-                whileHover={{ scale: 1.03 }}
-              />
+            {/* Video Overlay Effects */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+            <div className="absolute top-4 right-4 bg-black/50 px-3 py-1 rounded-full text-white text-sm font-medium">
+              🔴 LIVE DEMO
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
+
+        {/* Right Section - Premium Content */}
+        <div className="md:w-[48%] flex justify-center items-center mt-8 md:mt-0">
+          <div className="text-left px-4 md:px-8 md:space-y-8 max-w-2xl">
+
+            {/* Animated Gradient Heading */}
+            <div className="space-y-4">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-[Josefin Sans] leading-tight">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#4FD9D6] via-[#A855F7] to-[#D700CE] animate-gradient-x">
+                  Explore in the
+                </span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#D700CE] via-[#4FD9D6] to-[#A855F7] animate-gradient-x delay-1000">
+                  metaverse one
+                </span>
+              </h1>
+            </div>
+
+            {/* Premium Tagline */}
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                pixel with
+              </span>
+              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-[MuseoModerno] text-transparent bg-clip-text bg-gradient-to-r from-[#00FF87] to-[#60EFFF] animate-pulse">
+                MiraQ
+              </span>
+            </div>
+
+            {/* CTA Section */}
+            <div className="flex flex-col md:flex-row md:items-center md:gap-8 md:mt-6">
+              <span className="text-3xl sm:text-4xl md:text-5xl font-bold font-[Josefin Sans] text-white mb-4 md:mb-0">
+                at a time
+              </span>
+
+              {/* Premium Button */}
+              <a
+                href="tel:7025784463"
+                className="group relative inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white rounded-2xl bg-gradient-to-r from-[#4FD9D6] to-[#D700CE] hover:from-[#D700CE] hover:to-[#4FD9D6] transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105 animate-pulse-slow"
+              >
+                <span className="relative z-10">Book a Demo</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#4FD9D6] to-[#D700CE] rounded-2xl blur-sm opacity-75 group-hover:opacity-100 group-hover:blur-md transition-all duration-300"></div>
+              </a>
+            </div>
+
+            {/* Stats Bar */}
+            <div className="flex justify-start items-center gap-6 pt-6 border-t border-gray-600/50 flex-wrap">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4FD9D6] to-[#00FF87]">Fresh</div>
+                <div className="text-sm text-gray-300">Innovative Approach</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#D700CE] to-[#A855F7]">40+</div>
+                <div className="text-sm text-gray-300">VR Solutions</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00FF87] to-[#60EFFF]">100%</div>
+                <div className="text-sm text-gray-300">Quality Focus</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B35] to-[#F7931E]">10+</div>
+                <div className="text-sm text-gray-300">Team Members</div>
+              </div>
+              <div className='hidden md:flex'>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#9D50BB] to-[#6E48AA]">Quick</div>
+                  <div className="text-sm text-gray-300">Turnaround</div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
-    </motion.div>
-  )
+    </div>
+  );
 }
 
-export default SectionOne
+export default SectionOne;
