@@ -20,7 +20,7 @@ function Hero() {
 
                 </div>
             </div>
-            <div className="absolute  top-[3px] md:left-[710px] left-[170px] z-50">
+            <div className="absolute  top-[3px] md:left-[710px] left-[145px] z-50">
                 <div className="relative">
                     <img
                         src={vr}
