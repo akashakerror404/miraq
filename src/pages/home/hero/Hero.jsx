@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import name from "../../../assets/HERO_IMAGES/icons/name.png";
 import man from "../../../assets/HERO_IMAGES/icons/man_img.png";
 import women from "../../../assets/HERO_IMAGES/icons/women_flip_img.png";
 import notch from "../../../assets/HERO_IMAGES/icons/notch.png";
 import vr from "../../../assets/HERO_IMAGES/icons/vr notch image.png";
+import BookDemoPopup from "./BookDemoPopup/BookDemoPopup";
 
 function Hero() {
     const tagline = "Innovate Explore Live";
     const slowTransition = { duration: 2.5, ease: "easeOut" }; // smooth + slow
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const openPopup = () => setIsPopupOpen(true);
+    const closePopup = () => setIsPopupOpen(false);
 
     return (
-        <div className="bg-bg-2 bg-cover bg-no-repeat border border-gray-400 rounded-3xl md:flex w-full shadow-inner-white-strong md:h-[700px] h-[850px] overflow-hidden relative md:mb-6 mb-4">
+        <div className="bg-bg-2 bg-cover bg-no-repeat border border-gray-400 rounded-3xl md:flex w-full shadow-inner-white-strong md:h-[690px] h-[850px] overflow-hidden relative md:mb-6 mb-4">
 
-
+            <BookDemoPopup isOpen={isPopupOpen} onClose={closePopup} />
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center z-50">
                 <div className="relative w-40 h-8">
                     <img src={notch} alt="Notch" className="w-full h-full" />
@@ -165,8 +170,8 @@ function Hero() {
                                     scale: 1.02
                                 }}
                             >
-                                Crafting <span className="text-[#4FD9D6]">immersive digital worlds</span>
-                                that blur the line between reality and imagination
+                                Crafting <span className="text-[#4FD9D6]">immersive digital worlds</span> <span></span>
+                                that  blur the line between reality and imagination
                             </motion.p>
 
                             {/* Corner Accents */}
@@ -184,9 +189,9 @@ function Hero() {
                             transition={{ delay: 2.5 }}
                         >
                             {[
-                                { number: "50+", label: "VR Worlds", color: "#4FD9D6", icon: "🌐" },
-                                { number: "99.9%", label: "Immersion", color: "#D700CE", icon: "🔥" },
-                                { number: "4.9★", label: "Rating", color: "#00FF87", icon: "⭐" }
+                                { number: "50+ 🌐", label: "VR Worlds", color: "#4FD9D6", icon: "" },
+                                { number: "99.9%", label: "Immersion", color: "#D700CE", icon: "" },
+                                { number: "4.9★", label: "Rating", color: "#00FF87", icon: "" }
                             ].map((stat, index) => (
                                 <motion.div
                                     key={index}
@@ -217,6 +222,7 @@ function Hero() {
                             transition={{ delay: 3 }}
                         >
                             <motion.button
+                               onClick={openPopup}
                                 className="group relative px-10 py-4 bg-gradient-to-r from-[#4FD9D6] to-[#D700CE] text-white font-bold rounded-xl overflow-hidden"
                                 whileHover={{
                                     scale: 1.05,
@@ -225,6 +231,7 @@ function Hero() {
                                 whileTap={{ scale: 0.95 }}
                             >
                                 <span className="relative z-10 flex items-center gap-3">
+                                    
                                     <motion.span
                                         animate={{ rotate: [0, 15, 0] }}
                                         transition={{ duration: 2, repeat: Infinity }}
@@ -440,6 +447,7 @@ function Hero() {
                             transition={{ delay: 1.8 }}
                         >
                             <motion.button
+                                 onClick={openPopup}
                                 className="py-4 bg-gradient-to-r from-[#4FD9D6] to-[#D700CE] text-white font-bold rounded-2xl shadow-lg flex items-center justify-center gap-2"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.95 }}

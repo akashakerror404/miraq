@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Book, Users, GraduationCap, Globe, Brain, Rocket, Star, Award, Video, Shield } from 'lucide-react';
+import SchoolDemoPopup from './SchoolDemoPopup/SchoolDemoPopup';
 
 function SectionThree() {
-  const [activeTab, setActiveTab] = useState(0);
-  const [hoveredFeature, setHoveredFeature] = useState(null);
 
- 
+
+     const [isSchoolPopupOpen, setIsSchoolPopupOpen] = useState(false);
+    
+    const openSchoolPopup = () => setIsSchoolPopupOpen(true);
+    const closeSchoolPopup = () => setIsSchoolPopupOpen(false);
 
   const features = [
     { icon: <Shield className="w-6 h-6" />, text: "Safe & Controlled Environment" },
@@ -19,7 +22,8 @@ function SectionThree() {
 
   return (
     <div className="bg-bg-2 bg-cover bg-no-repeat border border-gray-700 rounded-3xl w-full min-h-[700px] overflow-hidden relative p-6 md:p-8 shadow-inner-white-strong mt-8">
-      
+                  <SchoolDemoPopup isOpen={isSchoolPopupOpen} onClose={closeSchoolPopup} />
+
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Floating Educational Elements */}
@@ -101,7 +105,7 @@ function SectionThree() {
 
 
         {/* Features Grid */}
-   <motion.div 
+   {/* <motion.div 
   className="flex flex-wrap justify-center gap-3 mt-12"
   initial={{ opacity: 0, y: 50 }}
   whileInView={{ opacity: 1, y: 0 }}
@@ -120,7 +124,7 @@ function SectionThree() {
       <span className="text-white text-sm font-medium">{feature.text}</span>
     </motion.div>
   ))}
-</motion.div>
+</motion.div> */}
 
         {/* CTA Section */}
         <motion.div 
@@ -133,6 +137,7 @@ function SectionThree() {
           <p className="text-gray-300 mb-6">Join 500+ educational institutions already using MiraQ VR</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.button 
+                    onClick={openSchoolPopup}
               className="px-8 py-4 bg-gradient-to-r from-[#4FD9D6] to-[#D700CE] text-white font-bold rounded-2xl shadow-2xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
