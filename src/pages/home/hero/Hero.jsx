@@ -19,24 +19,20 @@ function Hero() {
         <div className="bg-bg-2 bg-cover bg-no-repeat border border-gray-400 rounded-3xl md:flex w-full shadow-inner-white-strong md:h-[690px] h-[850px] overflow-hidden relative md:mb-6 mb-4">
 
             <BookDemoPopup isOpen={isPopupOpen} onClose={closePopup} />
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center z-50">
-                <div className="relative w-40 h-8">
-                    <img src={notch} alt="Notch" className="w-full h-full" />
-
-                </div>
-            </div>
-            <div className="absolute  top-[3px] md:left-[710px] left-[145px] z-50">
-                <div className="relative">
-                    <img
-                        src={vr}
-                        alt="VR"
-                        className="  w-10 h-10 "
-                    />
-
-                </div>
-
-
-            </div>
+<div className="absolute top-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center z-50">
+    <div className="relative w-40 h-8">
+        <img src={notch} alt="Notch" className="w-full h-full" />
+        
+        {/* VR image centered within the notch */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 mt-2 -translate-y-1/2 z-50">
+            <img
+                src={vr}
+                alt="VR"
+                className="w-10 h-10"
+            />
+        </div>
+    </div>
+</div>
             {/* left content */}
             <div className="hidden md:flex md:w-1/2 h-full justify-start px-5 items-center">
                 <div className="relative">
