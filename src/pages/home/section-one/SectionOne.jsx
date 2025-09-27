@@ -14,7 +14,7 @@ function SectionOne() {
           <div className="relative rounded-2xl overflow-hidden border-2 border-gray-600 shadow-2xl w-full max-w-2xl">
             {/* Premium Video Player */}
             <video
-              className="w-full h-[250px] md:h-[450px] object-cover transform hover:scale-105 transition-transform duration-700"
+              className="w-full h-[150px] md:h-[450px] object-cover transform hover:scale-105 transition-transform duration-700"
               controls
               autoPlay
               muted
@@ -27,10 +27,17 @@ function SectionOne() {
             </video>
 
             {/* Video Overlay Effects */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+            <div className='hidden md:flex'>
+              <div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
             <div className="absolute top-4 right-4 bg-black/50 px-3 py-1 rounded-full text-white text-sm font-medium">
               🔴 LIVE DEMO
             </div>
+
+              </div>
+
+            </div>
+        
           </div>
         </div>
 
@@ -78,27 +85,27 @@ function SectionOne() {
             </div>
 
             {/* Stats Bar */}
-            <div className="flex justify-start items-center gap-6 pt-6 border-t border-gray-600/50 flex-wrap">
+            <div className="flex justify-start items-center gap-6 pt-6 border-t border-gray-600/50 ">
               <div className="text-center">
-                <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4FD9D6] to-[#00FF87]">Fresh</div>
-                <div className="text-sm text-gray-300">Innovative Approach</div>
+                <div className="md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4FD9D6] to-[#00FF87]">Fresh</div>
+                <div className="md:text-sm  text-[10px] text-gray-300">Innovative Approach</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#D700CE] to-[#A855F7]">40+</div>
-                <div className="text-sm text-gray-300">VR Solutions</div>
+                <div className="md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#D700CE] to-[#A855F7]">40+</div>
+                <div className="md:text-sm  text-[10px] text-gray-300">VR Solutions</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00FF87] to-[#60EFFF]">100%</div>
-                <div className="text-sm text-gray-300">Quality Focus</div>
+                <div className="md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00FF87] to-[#60EFFF]">100%</div>
+                <div className="md:text-sm  text-[10px] text-gray-300">Quality Focus</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B35] to-[#F7931E]">10+</div>
-                <div className="text-sm text-gray-300">Team Members</div>
+                <div className="md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B35] to-[#F7931E]">10+</div>
+                <div className="md:text-sm  text-[10px] text-gray-300">Team Members</div>
               </div>
               <div className='hidden md:flex'>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#9D50BB] to-[#6E48AA]">Quick</div>
-                  <div className="text-sm text-gray-300">Turnaround</div>
+                  <div className="md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#9D50BB] to-[#6E48AA]">Quick</div>
+                  <div className="text-sm text-[7px] text-gray-300">Turnaround</div>
                 </div>
 
               </div>
